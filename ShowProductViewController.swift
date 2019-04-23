@@ -17,7 +17,7 @@ class ShowProductViewController: UIViewController {
     
     // MARK: PROPERTIES
     var product: Product?
-    let listOfPruductCategories: [String] = ["Long Dress","Short Dress","Books","Pant","Pen","Other"]
+    let listOfPruductCategories: [String] = ["Long Dress","Short Dress","Books","Pant","sweater","greencaps","bags","Other"]
     var pickerView = UIPickerView() // will hold all the product category choices
     
     // MARK:  @IBOULETS
@@ -87,11 +87,15 @@ class ShowProductViewController: UIViewController {
         case "Pant":
                 productImage = UIImage(named: "pants")
         case "Books":
-                productImage = UIImage(named: "noImage")
-        case "Pen":
-                productImage = UIImage(named: "noImage")
+                productImage = UIImage(named: "Books")
+        case "sweater":
+                productImage = UIImage(named: "sweater")
         case "Other":
-                productImage = UIImage(named: "noImage")
+                productImage = UIImage(named: "mvsu")
+        case "greencaps":
+            productImage = UIImage(named: "greencaps")
+        case "bags":
+            productImage = UIImage(named: "bags")
        default:
             productImage = UIImage(named: "noImage")
     

@@ -14,6 +14,7 @@ import FirebaseDatabase
 
 struct UserService {
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
+        //
         let userAttrs = ["username": username]
         
         let ref = Database.database().reference().child("users").child(firUser.uid)

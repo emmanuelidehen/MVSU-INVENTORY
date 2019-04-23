@@ -28,18 +28,19 @@ class CreateUsernameViewController: UIViewController {
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         
-        // 1
         guard let firUser = Auth.auth().currentUser,
             let username = usernameTextField.text,
             !username.isEmpty else { return }
         
         UserService.create(firUser, username: username) { (user) in
-            guard let _ = user else {
+            guard let user = user else {
+                // handle error
                 return
             }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            User.setCurrent(user)
             
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
             if let initialViewController = storyboard.instantiateInitialViewController() {
                 self.view.window?.rootViewController = initialViewController
                 self.view.window?.makeKeyAndVisible()
@@ -48,7 +49,7 @@ class CreateUsernameViewController: UIViewController {
         
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -56,6 +57,6 @@ class CreateUsernameViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
