@@ -14,6 +14,8 @@ class MainMenuViewController: UIViewController{
     // MARK: @IBOULETS
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     // MARK: PROPERTIES
     
     var userProducts = [Product]() {
@@ -55,5 +57,20 @@ class MainMenuViewController: UIViewController{
             print("Unverified identifier")
         }
     }
+    
+    
+    //Binary Search Algorithm
+    // inteand to use this alorithm to serach for items in the list
+    func binarySearch ( inputSortedData: [Int], searchElement: Int ) -> Int {
+        var minLeft = 0
+        var maxRight = inputSortedData.count - 1
+        while ( minLeft <= maxRight ) {
+            let middleElement = (minLeft + maxRight) / 2
+            if (searchElement == inputSortedData[middleElement]) { return middleElement + 1; }
+            if (searchElement < inputSortedData[middleElement]) { maxRight = middleElement - 1 }
+            if (searchElement > inputSortedData[middleElement]) { minLeft = middleElement + 1 }
+        }
+        return -1;
+    
 }
-
+}

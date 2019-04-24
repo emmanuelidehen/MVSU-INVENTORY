@@ -14,10 +14,10 @@ import Foundation
  This is where the user creates, modifies, and enters the data for each product 
  */
 class ShowProductViewController: UIViewController {
-    
+    var tapInt = 0
     // MARK: PROPERTIES
     var product: Product?
-    let listOfPruductCategories: [String] = ["Long Dress","Short Dress","Books","Pant","sweater","greencaps","bags","Other"]
+    let listOfPruductCategories: [String] = ["Long Dress","Short Dress","Books","Pant","sweater","greencaps","bags","Other","Linear Algebra","Discrete Mathematics","Intro. to Computation","iOS Programming","Pencil","Pen"]
     var pickerView = UIPickerView() // will hold all the product category choices
     
     // MARK:  @IBOULETS
@@ -30,9 +30,24 @@ class ShowProductViewController: UIViewController {
     @IBOutlet weak var productCategoryLabel: UITextField!
     
     // MARK: VIEWCONTROLLERS LIFECYCLE METHODS
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var tapMe: UIButton!
+    @IBOutlet weak var tapMex: UIButton!
+    
+    @IBOutlet weak var displayScoreLabel: UILabel!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tapInt = 0
+        displayScoreLabel.text = String(tapInt)
+        
+        
+        
+        
         
         self.title = product?.productName
         self.pickerView.delegate = self as UIPickerViewDelegate
@@ -46,6 +61,26 @@ class ShowProductViewController: UIViewController {
         self.amazonPriceLabel.delegate = self as UITextFieldDelegate
         self.sellingPriceLabel.delegate = self as UITextFieldDelegate
     }
+    
+    
+    
+    @IBAction func tapMeButton(_ sender: UIButton) {
+        
+        tapInt += 1
+         displayScoreLabel.text = String(tapInt)
+       
+    }
+  
+    
+    @IBAction func tapMeButtonx(_ sender: UIButton) {
+        tapInt -= 1
+        displayScoreLabel.text = String(tapInt)
+    }
+    
+    override  func show(_ vc: UIViewController, sender: Any?) {
+        displayScoreLabel.text = String(tapInt)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,25 +113,117 @@ class ShowProductViewController: UIViewController {
         var productImage: UIImage?
                 // Assigning the correct image to the product
         let pickerValue = listOfPruductCategories[pickerView.selectedRow(inComponent: 0)]
-        
+       
+       // String.self; mount = 0;
         switch pickerValue{
         case "Long Dress":
-                productImage = UIImage(named: "longDress")
+          var tapInt: [String: Int] = [:]
+      
+            listOfPruductCategories.forEach { tapInt[$0, default: 0] += 1 }
+            
+            print(tapInt)
+            
+            productImage = UIImage(named: "longDress")
+            
         case "Short Dress":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
                 productImage = UIImage(named: "shortDress")
         case "Pant":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
                 productImage = UIImage(named: "pants")
         case "Books":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
                 productImage = UIImage(named: "Books")
+            
         case "sweater":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
                 productImage = UIImage(named: "sweater")
         case "Other":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
                 productImage = UIImage(named: "mvsu")
         case "greencaps":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
             productImage = UIImage(named: "greencaps")
         case "bags":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
             productImage = UIImage(named: "bags")
-       default:
+            
+        case "Linear Algebra":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
+            productImage = UIImage(named: "Linear Algebra")
+            
+        case "Discrete Mathematics":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
+            productImage = UIImage(named: "Discrete Mathematics")
+        case "Intro. to Computation":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
+            productImage = UIImage(named: "Intro. to Computation")
+        case "iOS Programming":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
+            productImage = UIImage(named: "iOS Programming")
+        case "Pencil":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
+            productImage = UIImage(named: "Pencil")
+        case "Pen":
+            var counts: [String: Int] = [:]
+            
+            listOfPruductCategories.forEach { counts[$0, default: 0] += 1 }
+            
+            print(counts)
+            productImage = UIImage(named: "Pen")
+            
+            
+            
+            
+        default:
             productImage = UIImage(named: "noImage")
     
         }
