@@ -8,13 +8,20 @@
 
 import UIKit
 import Foundation
-
-
+//static cast from int to string 
+extension Int16 {
+    func toString() -> String {
+        return String(self)
+    }
+}
 /*
  This is where the user creates, modifies, and enters the data for each product 
  */
 class ShowProductViewController: UIViewController {
-    var tapInt = 0
+    var tapInt = Int()
+    
+    
+  
     // MARK: PROPERTIES
     var product: Product?
     let listOfPruductCategories: [String] = ["Long Dress","Short Dress","Books","Pant","sweater","greencaps","bags","Other","Linear Algebra","Discrete Mathematics","Intro. to Computation","iOS Programming","Pencil","Pen"]
@@ -44,6 +51,9 @@ class ShowProductViewController: UIViewController {
         
         tapInt = 0
         displayScoreLabel.text = String(tapInt)
+        if self.product != nil {
+            self.displayScoreLabel.text = self.product?.productAmount.toString()
+        }
         
         
         
@@ -63,20 +73,27 @@ class ShowProductViewController: UIViewController {
     }
     
     
-    
     @IBAction func tapMeButton(_ sender: UIButton) {
         
+        //guard let unwrappedProduct = self.product else { return }
         tapInt += 1
-         displayScoreLabel.text = String(tapInt)
+        self.scoreLabel.text = String(tapInt)
+        //unwrappedProduct.productAmount += 1
+//        self.product?.productAmount
+//         displayScoreLabel.text = String(tapInt)
        
     }
   
     
     @IBAction func tapMeButtonx(_ sender: UIButton) {
         tapInt -= 1
-        displayScoreLabel.text = String(tapInt)
+        self.scoreLabel.text = String(tapInt)
+//        self.product?.productAmount-=1
+//        displayScoreLabel.text = String(tapInt)
+      // UIAccessibilityTraitLink
+        
     }
-    
+   
     override  func show(_ vc: UIViewController, sender: Any?) {
         displayScoreLabel.text = String(tapInt)
     }

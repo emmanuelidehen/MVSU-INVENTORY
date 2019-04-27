@@ -33,7 +33,7 @@ extension Product {
     
     // Instance Method - returns the invested money on one merchandise
     internal func getProductInvestementAmount() -> Double{
-        return self.productWholeSalePrice
+        return Double(self.productWholeSalePrice)
     }
     
     // Instance Method - returns the total profit off of all the merchandise

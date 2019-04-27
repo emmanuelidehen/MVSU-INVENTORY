@@ -12,7 +12,15 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  let tapInt = Int()
+    
+    
+    
+  //  let appDelegate = UIApplication.shared.delegate as! AppDelegate
+   // let myOldScores : Int = appDelegate.tapInt
+    
+    
+    
     var window: UIWindow?
 
 

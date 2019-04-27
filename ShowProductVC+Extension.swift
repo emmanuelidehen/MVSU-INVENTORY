@@ -25,6 +25,7 @@ extension ShowProductViewController{
             product?.productCategory = productCategoryLabel.text ?? ""
             product?.productWholeSalePrice = (wholesalePriceLabel.text?.convertSringToDouble(wholesalePriceLabel.text))!
             product?.productPriceOnAmazon = (amazonPriceLabel.text?.convertSringToDouble(amazonPriceLabel.text))!
+            product?.productAmount = Int16(tapInt)
             product?.sellingPrice = (sellingPriceLabel.text?.convertSringToDouble(sellingPriceLabel.text))!
 
             destination.tableView.reloadData()
@@ -43,6 +44,7 @@ extension ShowProductViewController{
             product.productImage = setProductImage(product)
             product.setProductProfit(product.getProductProfit())
             product.setProductInvestment(product.productWholeSalePrice)
+            product.productAmount = Int16(tapInt)
             destination.userProducts.append(product)
             CoreDataHelper.saveProduct()
         default:

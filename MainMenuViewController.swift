@@ -13,7 +13,8 @@ class MainMenuViewController: UIViewController{
     
     // MARK: @IBOULETS
     @IBOutlet weak var tableView: UITableView!
-    
+    //added a search bar to the main
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     // MARK: PROPERTIES
@@ -73,4 +74,11 @@ class MainMenuViewController: UIViewController{
         return -1;
     
 }
+    
+ 
+    
+    
+    
+    
 }
+
