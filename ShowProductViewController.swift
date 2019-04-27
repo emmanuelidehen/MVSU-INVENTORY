@@ -77,7 +77,7 @@ class ShowProductViewController: UIViewController {
         
         //guard let unwrappedProduct = self.product else { return }
         tapInt += 1
-        self.scoreLabel.text = String(tapInt)
+        self.displayScoreLabel.text = String(tapInt)
         //unwrappedProduct.productAmount += 1
 //        self.product?.productAmount
 //         displayScoreLabel.text = String(tapInt)
@@ -87,7 +87,7 @@ class ShowProductViewController: UIViewController {
     
     @IBAction func tapMeButtonx(_ sender: UIButton) {
         tapInt -= 1
-        self.scoreLabel.text = String(tapInt)
+        self.displayScoreLabel.text = String(tapInt)
 //        self.product?.productAmount-=1
 //        displayScoreLabel.text = String(tapInt)
       // UIAccessibilityTraitLink

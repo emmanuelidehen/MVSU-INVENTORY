@@ -44,6 +44,7 @@ extension ShowProductViewController{
             product.productImage = setProductImage(product)
             product.setProductProfit(product.getProductProfit())
             product.setProductInvestment(product.productWholeSalePrice)
+            //had to add a product amount to the 
             product.productAmount = Int16(tapInt)
             destination.userProducts.append(product)
             CoreDataHelper.saveProduct()

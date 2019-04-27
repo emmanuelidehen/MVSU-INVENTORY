@@ -9,8 +9,11 @@ import UIKit
 import Foundation
 
 
-class MainMenuViewController: UIViewController{
-    
+class MainMenuViewController: UIViewController, UISearchResultsUpdating{
+     var searchController = UISearchController()
+    var resultController = UITableViewController()
+   var listOfPruductCategories = ["Book","Sweater","Long Dress","Short Dress","Pant"]
+    var filteredArray = [String]()
     // MARK: @IBOULETS
     @IBOutlet weak var tableView: UITableView!
     //added a search bar to the main
@@ -38,6 +41,33 @@ class MainMenuViewController: UIViewController{
         tableView.dataSource = self as UITableViewDataSource
         tableView.separatorColor = UIColor.white
         userProducts = CoreDataHelper.fetchAllProducts()
+        
+        searchController = UISearchController(searchResultsController: resultController)
+        tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        
+        resultController.tableView.delegate = self
+        resultController.tableView.dataSource = self
+    }
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredArray = listOfPruductCategories.filter({ (listOfPruductCategories:String) -> Bool in
+            if listOfPruductCategories.contains(searchController.searchBar.text!){
+                return true
+            }else
+            {
+                return false
+            }
+        })
+        resultController.tableView.reloadData()
+        
+        //filteredArray = Array.filter({Array<<<error; type>>>})
+        //    if Array.contains(searchController.searchBar.text!){
+           //     return true
+        
+ 
+
     }
 
     // MARK: SEGUES METHODS
