@@ -15,7 +15,7 @@ extension ShowProductViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueIdentifier = segue.identifier, let destination = segue.destination as? MainMenuViewController else {return}
         switch segueIdentifier {
-     
+            
         // SAFELY UNWRAP THEM MEDI !!!
         case "save" where product != nil:
             
@@ -27,10 +27,10 @@ extension ShowProductViewController{
             product?.productPriceOnAmazon = (amazonPriceLabel.text?.convertSringToDouble(amazonPriceLabel.text))!
             product?.productAmount = Int16(tapInt)
             product?.sellingPrice = (sellingPriceLabel.text?.convertSringToDouble(sellingPriceLabel.text))!
-
+            
             destination.tableView.reloadData()
             CoreDataHelper.saveProduct()
-       
+            
         case "save" where product == nil:
             
             let product: Product = CoreDataHelper.createNewProduct()
@@ -54,7 +54,7 @@ extension ShowProductViewController{
     }
 }
 
-            // SETTING UP THE PRODUCT CATEGORY PICKER CHOICE
+// SETTING UP THE PRODUCT CATEGORY PICKER CHOICE
 
 extension ShowProductViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -72,9 +72,9 @@ extension ShowProductViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return listOfPruductCategories[row]
     }
-
+    
 }
-        // SETTING UP THE TEXTFIELDS IN THE VC
+// SETTING UP THE TEXTFIELDS IN THE VC
 extension ShowProductViewController: UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

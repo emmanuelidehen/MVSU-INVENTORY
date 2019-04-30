@@ -15,16 +15,16 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productProfitLabel: UILabel!
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-                // Setting up the Cell Views
+        // Setting up the Cell Views
         guard let cellView = self.cellView, let name = self.productNameLabel, let profit = self.productProfitLabel, let image = self.productImage else{
             print("Error Occured")
             return
         }
         
-
+        
         //cellView.layer.cornerRadius = image.frame.height / 2
         cellView.layer.cornerRadius = image.frame.height / 2
         image.layer.cornerRadius = image.frame.size.width / 2
@@ -36,5 +36,5 @@ class ProductCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
- 
+    
 }

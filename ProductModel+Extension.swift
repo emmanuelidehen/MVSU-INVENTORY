@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-    // extending the Product Entity to add custom methods
+// extending the Product Entity to add custom methods
 
 extension Product {
     

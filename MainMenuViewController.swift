@@ -9,11 +9,18 @@ import UIKit
 import Foundation
 
 
-class MainMenuViewController: UIViewController, UISearchResultsUpdating{
-     var searchController = UISearchController()
+
+class MainMenuViewController: UIViewController {
+    var searchController = UISearchController()
     var resultController = UITableViewController()
-   var listOfPruductCategories = ["Book","Sweater","Long Dress","Short Dress","Pant"]
+//    var listOfPruductCategories: [String] = ["long dress","short dress","books","pant","sweater","greencaps","bags","other"]
     var filteredArray = [String]()
+//  var listOfPruductCategories: [String] = ["long dress","short dress","books","pant","sweater","greencaps","other"]
+    
+   
+    
+    
+    
     // MARK: @IBOULETS
     @IBOutlet weak var tableView: UITableView!
     //added a search bar to the main
@@ -41,16 +48,22 @@ class MainMenuViewController: UIViewController, UISearchResultsUpdating{
         tableView.dataSource = self as UITableViewDataSource
         tableView.separatorColor = UIColor.white
         userProducts = CoreDataHelper.fetchAllProducts()
-        
-        searchController = UISearchController(searchResultsController: resultController)
-        tableView.tableHeaderView = searchController.searchBar
-        searchController.searchResultsUpdater = self
+        //search alg...
+//        searchController = UISearchController(searchResultsController: resultController)
+//        tableView.tableHeaderView = searchController.searchBar
+      //  searchController.searchResultsUpdater = self
         
         resultController.tableView.delegate = self
         resultController.tableView.dataSource = self
+       // searchBar.delegate! = self
+       // searchBar.returnKeyType = UIReturnKeyType.done
     }
     
     
+    
+   
+    
+//    //UPDate search result
     func updateSearchResults(for searchController: UISearchController) {
         filteredArray = listOfPruductCategories.filter({ (listOfPruductCategories:String) -> Bool in
             if listOfPruductCategories.contains(searchController.searchBar.text!){
@@ -61,13 +74,13 @@ class MainMenuViewController: UIViewController, UISearchResultsUpdating{
             }
         })
         resultController.tableView.reloadData()
-        
         //filteredArray = Array.filter({Array<<<error; type>>>})
         //    if Array.contains(searchController.searchBar.text!){
-           //     return true
-        
- 
+        //     return true
 
+        
+        
+       // if 
     }
 
     // MARK: SEGUES METHODS
@@ -90,22 +103,7 @@ class MainMenuViewController: UIViewController, UISearchResultsUpdating{
     }
     
     
-    //Binary Search Algorithm
-    // inteand to use this alorithm to serach for items in the list
-    func binarySearch ( inputSortedData: [Int], searchElement: Int ) -> Int {
-        var minLeft = 0
-        var maxRight = inputSortedData.count - 1
-        while ( minLeft <= maxRight ) {
-            let middleElement = (minLeft + maxRight) / 2
-            if (searchElement == inputSortedData[middleElement]) { return middleElement + 1; }
-            if (searchElement < inputSortedData[middleElement]) { maxRight = middleElement - 1 }
-            if (searchElement > inputSortedData[middleElement]) { minLeft = middleElement + 1 }
-        }
-        return -1;
     
-}
-    
- 
     
     
     
