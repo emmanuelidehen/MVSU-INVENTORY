@@ -22,7 +22,7 @@ extension String {
   var listOfPruductCategories: [String] = ["Long dress","Short dress","Books","Pant","Sweater","Greencaps","Other"]
 
 
-extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+extension MainMenuViewController: UITableViewDataSource {
    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         
@@ -37,30 +37,35 @@ extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate, UI
                 //reload the tableview, only showing the item you searched for
                 //you might have to load the tableview again, this time only giving it an arry of the item corresponsing to i */
                 
-                    
+                //  [self.tableView.reloadData()];
+//                 userProducts.count
+              
+//                tableView.beginUpdates()
+                
                   print("Item found")
-                    result
+                
             
                 
                 //print("Item found")
                // tableView.reloadData()
-                  tableView.beginUpdates()
-                tableView.reloadData()
+                
                 
             }
+            
+           
         }
         
-        var arrray = [products]
-        arrray.append([ ])
-        tableView.dataSourceIndexPath(forPresentationIndexPath: )
-    // first.append(contentsOf: second)
-        func found(){
-            
-            
-            arrray.append(products)
-           // let indexpath = indexpath(row: arrray.count, section: 0)
-            tableView.beginUpdates()
-        }
+//        var arrray = [products]
+//        arrray.append([ ])
+//        tableView.dataSourceIndexPath(forPresentationIndexPath: )
+//    // first.append(contentsOf: second)
+//        func found(){
+//
+//
+//            arrray.append(products)
+//           // let indexpath = indexpath(row: arrray.count, section: 0)
+//            tableView.beginUpdates()
+//        }
         
        // tableView.reloadData()
         
@@ -78,42 +83,51 @@ extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate, UI
 //        }else {
 //            return listOfPruductCategories.count
 //        }
+//        if isSearching{
+//            return userProducts.count
+//        }
        
        
-         return userProducts.count
+        return userProducts.count
     }
     //===========================================================================================================
     // Function to fill up each table view cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.mainMenuCellIdentifier, for: indexPath) as! ProductCell
+//        let text: Product!
+//
+//        if isSearching{
+//            text = userProducts[indexPath.row]
+//        }else{
+//
+//        }
         let product = userProducts[indexPath.row]
+        
         cell.productNameLabel.text = product.productName
         cell.productProfitLabel.text = "$" + product.getProductProfit().convertDoubleToString()
         cell.productImage.image = product.productImage as? UIImage
+        
+       
+        
+       
        
         return cell
-        
-//                //if statement to check if the search result is equal to the
-//               if tableView == resultController.tableView{
-//                   cell.productNameLabel?.text = filteredArray[indexPath.row]
-//                    cell.textLabel?.text = filteredArray[indexPath.row]
-//             //   cell.productImage?.textInputMode = filteredArray[indexPath.row]
-//                  //  cell.productProfitLabel?.text = filteredArray[indexPath.row]
-//
-//        //          //  return filteredArray.count
-//               }else {
-//                      cell.textLabel?.text = listOfPruductCategories[indexPath.row]
-//               //    return listOfPruductCategories.count
-//
-//                }
-        
-        }
-    //==========================================================================================================
+    }
+   
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text == nil || searchBar.text == "" {
+//            isSearching = false
+//            view.endEditing(true)
+//            [self.tableView.reloadData()];
+//        }else {
+//            isSearching = true
+//           // filteredArray = Data.filter( {ProductCell; searchbar.text})
+//           [self.tableView.reloadData()];
+//           // userProducts =
+//        }
+    }
     
    
-    
-    
-    
     
     
     // function to remove a product from the main menu and from the array

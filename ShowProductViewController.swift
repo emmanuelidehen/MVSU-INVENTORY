@@ -23,7 +23,7 @@ extension Int16 {
 
 class ShowProductViewController: UIViewController{
     var tapInt = Int()
-    var listOfPruductCategories: [String] = ["long dress","short dress","books","pant","sweater","greencaps","other"]
+    var listOfPruductCategories: [String] = ["Dress","Books","Pants","Sweater","Caps","Other"]
     
     
     // MARK: PROPERTIES
@@ -146,29 +146,27 @@ class ShowProductViewController: UIViewController{
 //        
         // String.self; mount = 0;
         switch pickerValue{
-        case "Long Dress":
+        case "Dress":
             
-            productImage = UIImage(named: "longDress")
+            productImage = UIImage(named: "ladyTop")
             
-        case "Short Dress":
+      
+        case "Pants":
            
-            productImage = UIImage(named: "shortDress")
-        case "Pant":
-           
-            productImage = UIImage(named: "pants")
+            productImage = UIImage(named: "Pants")
         case "Books":
             
             productImage = UIImage(named: "Books")
             
-        case "sweater":
+        case "Sweater":
             
             productImage = UIImage(named: "sweater")
         case "Other":
            
             productImage = UIImage(named: "mvsu")
-        case "greencaps":
+        case "Caps":
             
-            productImage = UIImage(named: "greencaps")
+            productImage = UIImage(named: "caps")
       default:
             productImage = UIImage(named: "noImage")
             
