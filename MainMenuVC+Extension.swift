@@ -42,8 +42,8 @@ extension MainMenuViewController: UITableViewDataSource {
               
 //                tableView.beginUpdates()
                 
-                  print("Item found")
-                
+                  print(result)
+               // var array[i]
             
                 
                 //print("Item found")
